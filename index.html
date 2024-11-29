@@ -1,109 +1,176 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Personal Homepage</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <title>齐心小屋💕</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <style>
-        /* Reset */
-        * {
+        body {
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
-            background: linear-gradient(130deg, #00c3ff, #ffff1c);
-            color: #fff;
-        }
-        /* Background Animation */
-        .background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(130deg, #00c3ff, #ffff1c, #ff3cac);
-            background-size: 200% 200%;
-            animation: animateBg 15s infinite ease-in-out;
-            z-index: -1;
-        }
-        @keyframes animateBg {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        /* Main Content */
-        .container {
+            background: linear-gradient(to bottom, #f8e8e8, #fce4ec);
             text-align: center;
+            color: #333;
+            overflow: hidden;
         }
-        h1 {
-            font-size: 3rem;
-            font-weight: 600;
-            margin-bottom: 0.5em;
-            text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
-        }
-        p {
-            font-size: 1.2rem;
-            font-weight: 300;
-            margin-bottom: 1.5em;
-            text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        .social-links a {
-            margin: 0 10px;
-            font-size: 1.5rem;
+        header {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            padding: 20px 0;
             color: #fff;
-            text-decoration: none;
+            font-size: 2.5rem;
+            font-weight: bold;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        .hero-image {
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease;
         }
-        .social-links a:hover {
-            transform: scale(1.2);
+        .hero-image:hover {
+            transform: scale(1.05);
         }
-        /* Button styling */
-        .btn {
+        .countdown {
+            font-size: 1.8rem;
+            color: #d81b60;
+            margin: 20px 0;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        nav {
+            margin: 30px 0;
+        }
+        nav a {
             display: inline-block;
-            padding: 0.8em 1.5em;
-            margin-top: 1.5em;
-            border-radius: 30px;
-            background-color: rgba(255, 255, 255, 0.2);
-            color: #fff;
-            font-size: 1rem;
+            margin: 10px;
+            padding: 12px 24px;
+            background: #fff;
+            color: #ff4081;
             text-decoration: none;
-            transition: background 0.3s ease, transform 0.3s ease;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            transition: background 0.3s ease, color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        .btn:hover {
-            background-color: rgba(255, 255, 255, 0.4);
-            transform: scale(1.1);
+        nav a:hover {
+            background: #ff4081;
+            color: #fff;
+        }
+        footer {
+            margin-top: 50px;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #fff;
+            padding: 20px 0;
+            font-size: 1rem;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        footer p {
+            margin: 5px 0;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: #ff4081;
+        }
+        .heart {
+            font-size: 4rem;
+            color: #d81b60;
+            animation: heartbeat 1.5s infinite;
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        .petal {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 182, 193, 0.8);
+            border-radius: 50%;
+            transform: rotate(45deg);
+            animation: fall 6s linear infinite;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                left: calc(10% + 80% * var(--pos));
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                left: calc(10% + 80% * var(--pos));
+            }
+        }
+        @media (max-width: 600px) {
+            header {
+                font-size: 2rem;
+            }
+            .countdown {
+                font-size: 1.5rem;
+            }
+            nav a {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
         }
     </style>
 </head>
 <body>
+    <header>💕 齐心小屋 💕</header>
+    <img class="hero-image" src="images/img1.jpg" alt="浪漫图片">
+    <p class="countdown">今天是我们在一起的 <strong id="days-count">999天</strong></p>
+    <nav>
+        <a href="album.html">🖼️ 时光相册</a>
+    </nav>
 
-    <!-- Background Animation Layer -->
-    <div class="background"></div>
+    <script>
+        function calculateDays() {
+            const startDate = new Date('2023-06-24');
+            const currentDate = new Date();
+            const timeDifference = currentDate - startDate;
+            const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            document.getElementById('days-count').textContent = `${daysDifference}天`;
+        }
 
-    <!-- Main Content -->
-    <div class="container">
-        <h1>Hi, I'm [Your Name]</h1>
-        <p>Creative Developer | Tech Enthusiast | Problem Solver</p>
+        calculateDays();
+    </script>
 
-        <!-- Social Links -->
-        <div class="social-links">
-            <a href="https://github.com/yourusername" target="_blank">GitHub</a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
-            <a href="https://twitter.com/yourusername" target="_blank">Twitter</a>
-        </div>
+    <script>
+        const numPetals = 30;
+        for (let i = 0; i < numPetals; i++) {
+            const petal = document.createElement('div');
+            petal.className = 'petal';
+            petal.style.setProperty('--pos', Math.random());
+            petal.style.animationDelay = `${Math.random() * 5}s`;
+            petal.style.animationDuration = `${Math.random() * 3 + 4}s`;
+            document.body.appendChild(petal);
+        }
+    </script>
 
-        <!-- Contact Button -->
-        <a href="mailto:youremail@example.com" class="btn">Get in Touch</a>
-    </div>
-
+    <footer>
+        <p>永远在一起</p>
+    </footer>
 </body>
 </html>
